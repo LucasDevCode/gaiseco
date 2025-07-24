@@ -1,0 +1,16 @@
+span.circle-status {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+span.active {
+    background-color: green;
+}
+
+span.inactive {
+    background-color: red;
+}
