@@ -1,0 +1,32 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - GAISeCo</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<nav>
+  <a href="{{ url_for('index') }}">
+    <img src="{{ url_for('static', filename='images/favicon.ico') }}" alt="logo">
+    <h1><a href="{{ url_for('index') }}">GAISeCo</a></h1>
+  </a>
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      <li><a href="{{ url_for('pages.prompts') }}">Prompts</a>
+      <li><a href="{{ url_for('config.index') }}">Config</a>
+      {% if g.user[1] == 'admin' %}
+        <li><a href="{{ url_for('auth.register') }}">Register</a>
+      {% endif %}
+    {% else %}
+      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="flash flash-{{category}}">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>

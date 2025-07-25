@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Configuration{% endblock %}</h1>
+  {% if g.user %}
+    <!-- <a class="action" href="{{ url_for('config.upload') }}"> Enviar Documento </a> -->
+    <!-- <a class="action" href="{{ url_for('config.upload') }}"> Alter </a> -->
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <form method="post">
+    <label for="input-number">Ajustar Sensibilidade do Score de Detecção:</label>
+    <input type="number" id="input-number" name="input-number" min="0" max="100" value="{{ score }}">
+    <input type="submit" value="Mudar">
+  </form>
+
+
+
+
+{% if list_files| length > 0 %}
+<h3>Arquivos Enviados:</h3>
+<table>
+  {% for file in list_files %}
+  <tr>
+    <td>
+      <a target="_blank" href="{{ url_for('static', filename='files/upload/'+file) }}"> {{file}} </a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br>
+
+<h3>Tipos de grupos:</h3>
+<table>
+  <tr>
+    <th>id</th>
+    <th>cargo</th>
+    <th>descrição</th>
+  </tr>
+  {% for group in groups %}
+  <tr>
+    <td>{{group[0]}}</td>
+    <td>{{group[1]}}</td>
+    <td>{{group[2]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+
+<h3>Lista com nome de usuário e email de quem pode acessar o server:</h3>
+<table>
+  <tr>
+    <th>group id</th>
+    <th>nome</th>
+    <th>email</th>
+  </tr>
+  {% for user in users %}
+  <tr>
+    <td>{{user[3]}}</td>
+    <td>{{user[1]}}</td>
+    <td>{{user[2]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+   
+
+{% endblock %}
+

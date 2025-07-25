@@ -1,0 +1,21 @@
+CNPJ: <BR_CNPJ> - <BR_CNPJ>
+
+Razão Social: Gbnt Tecnologia LTDA
+
+<PERSON>: Gbnt Tecnologia
+
+Data da Abertura: <DATE_TIME> há 7 meses 4 dias
+
+Porte: Micro Empresa
+
+<PERSON>: Sociedade Empresária Limitada
+
+Opção pelo MEI: Não
+
+Opção pelo Simples: Sim
+
+Data opção Simples: <DATE_TIME>
+
+Capital Social: R$ 100,00
+
+Tipo: <LOCATION>: <DATE_TIME>

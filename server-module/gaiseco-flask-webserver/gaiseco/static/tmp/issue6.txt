@@ -1,0 +1,1 @@
+Além do CNPJ principal, a Petrobras possui outros CNPJs para diferentes unidades e <PERSON>, como o CNPJ <BR_CNPJ> para a unidade 

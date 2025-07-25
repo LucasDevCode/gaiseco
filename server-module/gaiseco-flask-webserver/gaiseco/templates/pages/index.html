@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Index{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('pages.index') }}">Index</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<h3>Lista Decrescente de Prompts Inseguros por Funcionário:</h3>
+<table>
+  <tr>
+    <th>Nº de Issues</th>
+    <th>Funcionário</th>
+  </tr>
+  {% for prompt in prompts_per_employee %}
+  <tr>
+    <td>{{prompt[0]}}</td>
+    <td>{{prompt[1]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br>
+
+
+{% endblock %}
+

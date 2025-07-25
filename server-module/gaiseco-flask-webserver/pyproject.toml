@@ -1,0 +1,42 @@
+[project]
+name = "gaiseco"
+version = "1.0.0"
+description = "Server to Generative AI check Security and Compliance."
+readme = "README.rst"
+license = {file = "LICENSE.txt"}
+maintainers = [{name = "GAISeCO", email = "gaiseco.server@gmail.com"}]
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "flask",
+    "presidio_analyzer",
+    "presidio_anonymizer",
+]
+
+[project.urls]
+Documentation = "https://flask.palletsprojects.com/tutorial/"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "gaiseco"
+
+[tool.flit.sdist]
+include = [
+    "tests/",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = ["gaiseco", "tests"]
+
+[tool.ruff]
+src = ["src"]
